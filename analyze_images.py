@@ -352,7 +352,7 @@ defoc_scale		0.01
             plt.show()
         
 
-    def show_stamp_layout_from_model_images(self, ds9):
+    def show_stamp_layout_from_model_images(self, ds9, magnification=30):
         #Make stamp layout from model images
         model_p = []
         model_m = []
@@ -362,12 +362,12 @@ defoc_scale		0.01
             model_m.append(f[1].data)
             model_p.append(f[4].data)
         
-        labels, stamp_layout_m = make_stamp_layout(model_m, self.xy_locations, 30)
+        labels, stamp_layout_m = make_stamp_layout(model_m, self.xy_locations, magnification)
         ds9.set("frame 3")
         ds9.set_np2arr(stamp_layout_m)
         ds9.set("region",labels)
         
-        labels, stamp_layout_p = make_stamp_layout(model_p, self.xy_locations, 30)
+        labels, stamp_layout_p = make_stamp_layout(model_p, self.xy_locations, magnification)
         ds9.set("frame 4")
         ds9.set_np2arr(stamp_layout_p)
         ds9.set("region",labels)

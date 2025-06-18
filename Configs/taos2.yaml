@@ -33,5 +33,3 @@ TAOS2-site3:
     center_pix_y: 4608
     max_field: 60
     fixed:  [defoc_scale]
-    
-    
