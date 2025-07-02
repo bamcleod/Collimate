@@ -145,7 +145,9 @@ defoc_scale		0.01
             
             
             defocfit = os.path.join(Path(__file__).parent,'Defocfit/defocfit')
-            result = subprocess.run([defocfit, "pm.in", "pm.params", output_fits],
+            
+            # Defocfit returns bad results intermittently when threading is enabled
+            result = subprocess.run([defocfit, "pm.in", "pm.params", output_fits, "usethreads=no"],
                                     stdout = subprocess.PIPE, text=True, stderr=subprocess.PIPE)
     
             with open(output_stderr, 'w') as file:
